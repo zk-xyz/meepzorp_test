@@ -1,0 +1,86 @@
+# Meepzorp Cursor Rules
+
+## Directory Structure Standards
+- Root directory is always /Users/jasonlankow/Desktop/mcp-implementation
+- Primary project directory is mcp-implementation/meepzorp
+- Each agent is a self-contained module under meepzorp/agents/
+- Tests live with their respective modules (no scattered test directories)
+- No duplicate nested directories (e.g., creative_director/creative_director)
+- Standard directory structure:
+  ```
+  mcp-implementation/
+  ├── .env
+  ├── README.md
+  ├── requirements.txt
+  └── meepzorp/
+      ├── requirements.txt
+      ├── docker-compose.yml
+      ├── README.md
+      ├── agents/
+      │   ├── __init__.py
+      │   ├── base/
+      │   ├── common/
+      │   ├── creative_director/
+      │   │   ├── __init__.py
+      │   │   ├── agent.py
+      │   │   ├── capabilities/
+      │   │   └── tests/
+      │   └── document_processor/
+      ├── orchestration/
+      ├── ui/
+      └── supabase/
+  ```
+
+## Environment & Configuration
+- Always check for existing .env files before creating new ones
+- Never commit sensitive credentials or API keys
+- Use environment variable templates in documentation
+- Keep configuration consistent across all services
+
+## Code Structure & Organization
+- Maintain modular architecture for agent components
+- Follow FastAPI factory pattern for all new agents
+- Keep agent-specific code in dedicated directories
+- Use consistent port numbering scheme (8000-8999 for services)
+
+## Documentation
+- Document all new endpoints in README.md
+- Update PRD when adding major features
+- Include example usage in agent documentation
+- Maintain up-to-date API documentation
+
+## Database & Storage
+- Use Supabase for all persistent storage
+- Implement pgvector for semantic search features
+- Follow established schema patterns
+- Document all database migrations
+
+## Testing & Quality
+- Include pytest fixtures for new components
+- Maintain test coverage for critical paths
+- Use FastAPI TestClient for endpoint testing
+- Implement health checks for all services
+
+## Security
+- Implement API key authentication for all endpoints
+- Use proper CORS configuration
+- Never log sensitive information
+- Follow security best practices for agent communication
+
+## Docker & Deployment
+- Use consistent container naming
+- Maintain service dependencies in docker-compose
+- Follow resource allocation guidelines
+- Implement proper health checks
+
+## Agent Communication
+- Follow MCP protocol standards
+- Implement proper error handling
+- Use standardized response formats
+- Maintain agent capability documentation
+
+## Knowledge Management
+- Follow RAG best practices
+- Implement proper vector storage
+- Maintain knowledge graph consistency
+- Document knowledge base schema changes 
